@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SimpleContainer from "../components/UI/SimpleContainer";
-import SearchBar from "../components/Form/SearchBar";
 import StandardImageList from "../components/List/StandardImageList";
 import Paginate from "../components/Paginate/Paginate";
 import axios from "axios";
@@ -31,11 +30,6 @@ const HomePage = () => {
     <SimpleContainer>
       <h1 style={{ textAlign: "center" }}>PixaBay Image Gallery</h1>
       {/* SearchBar */}
-      {/* <SearchBar
-        searchValue={search}
-        onChangeSearchValue={setSearch}
-        onSearch={searchHandlder}
-      /> */}
       <NewSearchBar
         searchValue={search}
         onChangeSearchValue={setSearch}
