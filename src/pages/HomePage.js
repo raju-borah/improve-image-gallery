@@ -4,7 +4,10 @@ import SearchBar from "../components/Form/SearchBar";
 import StandardImageList from "../components/List/StandardImageList";
 import Paginate from "../components/Paginate/Paginate";
 import axios from "axios";
+import NewSearchBar from "../components/Form/newSearchBar";
+
 const { REACT_APP_PIXABAY_KEY } = process.env;
+
 const HomePage = () => {
   const [imageList, setImageList] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -28,11 +31,16 @@ const HomePage = () => {
     <SimpleContainer>
       <h1 style={{ textAlign: "center" }}>PixaBay Image Gallery</h1>
       {/* SearchBar */}
-      <SearchBar
+      {/* <SearchBar
         searchValue={search}
         onChangeSearchValue={setSearch}
         onSearch={searchHandlder}
-      />
+      /> */}
+      <NewSearchBar
+        searchValue={search}
+        onChangeSearchValue={setSearch}
+        onSearch={searchHandlder}
+      ></NewSearchBar>
       {/* {imageList.length} */}
       <StandardImageList images={imageList}></StandardImageList>
       <Paginate

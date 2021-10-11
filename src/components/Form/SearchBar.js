@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
-import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import ImageSearchIcon from "@mui/icons-material/ImageSearch";
+import NewSearchBar from "./newSearchBar";
+
+const { REACT_APP_PIXABAY_KEY } = process.env;
 export default function SearchBar(props) {
   useEffect(() => {
     props.onChangeSearchValue(props.searchValue);
@@ -26,17 +26,10 @@ export default function SearchBar(props) {
           props.onSearch(props.searchValue);
         }}
       >
-        <InputBase
-          sx={{ ml: 1, flex: 1 }}
-          placeholder="Search..."
-          inputProps={{ "aria-label": "Search..." }}
-          value={props.searchValue || " "}
-          required
-          onChange={(event) => props.onChangeSearchValue(event.target.value)}
-        />
-        <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+        <NewSearchBar props={props}></NewSearchBar>
+        {/* <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
           <ImageSearchIcon />
-        </IconButton>
+        </IconButton> */}
       </Paper>
     </Container>
   );
